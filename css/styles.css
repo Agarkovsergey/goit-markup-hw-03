@@ -14,15 +14,17 @@
   --white-color: #ffffff;
   --primary-background-color: #ffffff;
   --secondary-background-color: #f5f4fa;
+  --border-color: #eeeeee;
 }
 html {
   box-sizing: border-box;
+  line-height: 0px;
 }
 *,
 *::after,
 *::before {
   box-sizing: inherit;
-  outline: 1px solid orangered;
+  /* outline: 1px solid orangered; */
   margin: 0;
   padding: 0;
 }
@@ -39,13 +41,31 @@ body {
 }
 .container {
   margin: 0 auto;
-
   width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
 }
 /* header */
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+.site-nav .list-item:not(:last-child) {
+  margin-right: 50px;
+}
 
+.site-nav .logo-container {
+  margin-right: 93px;
+}
 .logo {
   color: var(--primary-text-color);
   font-family: 'Raleway', sans-serif;
@@ -57,7 +77,6 @@ body {
 .logo span {
   color: #2196f3;
 }
-
 .site-nav .link {
   color: var(--primary-text-color);
   font-weight: 500;
@@ -73,16 +92,26 @@ body {
 .site-nav .link.current {
   color: var(--accent-color);
 }
+.header-addres {
+  display: flex;
+}
+.contacts {
+  display: flex;
+  align-items: center;
+}
+.contacts .list-item:not(:last-child) {
+  margin-right: 50px;
+}
 
-.nav-contacts .link {
+.contacts .link {
   color: var(--secondary-text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
 }
-.nav-contacts .link:hover,
-.nav-contacts .link:focus {
+.contacts .link:hover,
+.contacts .link:focus {
   color: var(--accent-color);
 }
 
@@ -153,9 +182,19 @@ body {
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
+  margin-bottom: 50px;
 }
 .section-title::first-letter {
   text-transform: uppercase;
+}
+.feature-list {
+  display: flex;
+}
+.feature-list .feature-item {
+  margin-right: 30px;
+}
+.feature-list .feature-item:nth-child(4n) {
+  margin-right: 0;
 }
 .feature-list .title {
   font-weight: 700;
@@ -174,36 +213,46 @@ body {
 .our-job {
   margin-bottom: 94px;
 }
-.our-job img {
+.our-job .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.our-job img:not(:nth-child(3n)) {
   margin-right: 30px;
 }
-.our-job img:last-child {
-  margin-right: 0;
+.our-job img:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 1em;
 }
+/* это работает коректно когда у нас число картинок кратное 3
+если их количество не кратно 3 то появляються баги*/
+
 /* team-block */
 .team-block {
   background-color: var(--secondary-background-color);
   margin: 0;
   padding: 94px 0;
 }
-.employee-card {
-  width: 270px;
-  margin-right: 30px;
-}
-.employee-card:nth-last-child(4n + 1) {
-  margin-right: 0;
-}
-.employee-card:not(:nth-last-child(-n + 4)) {
-  margin-bottom: 1em;
-}
-.team-block img {
-  margin-bottom: 30px;
-}
 .team-block .list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.employee-card:not(:nth-last-child(-n + 4)) {
+  margin-bottom: 1em;
+}
+/* это работает коректно когда у нас число картинок кратное 4
+если их количество не кратно 4 то появляються баги*/
+.team-block .card-container {
+  background: var(--primary-background-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  padding-bottom: 30px;
+}
+
+.team-block .employee-img {
+  margin-bottom: 30px;
+}
+
 .team-block .title {
   font-weight: 500;
   font-size: 16px;
@@ -211,8 +260,6 @@ body {
   text-align: center;
   text-transform: capitalize;
   margin-bottom: 10px;
-  /* margin-top: -0.07em; */
-  /*без этого марджина возникает непонятный мне отступ который можно увидеть только если длбавить к этому классу свойство outline */
 }
 
 .post {
@@ -241,37 +288,65 @@ body {
 }
 
 /* main portfolio.html */
+.portfolio-page {
+  margin-top: 94px;
+  margin-bottom: 94px;
+}
+.filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.filter .filter-item:not(:last-child) {
+  margin-right: 8px;
+}
 .filter .filter-button {
   background-color: var(--secondary-background-color);
+  border: 1px solid transparent;
+  border-radius: 4px;
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
+  padding: 6px 22px;
 }
 .filter .filter-button.current {
   background-color: var(--accent-color);
   color: var(--white-color);
 }
-
-.card a {
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.portfolio-card:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 30px;
+}
+.portfolio-card .card-container {
+  background: var(--primary-background-color);
+  border: 1px solid var(--border-color);
+}
+.portfolio-card a {
   text-decoration: none;
 }
-.card .title {
+.portfolio-card .title {
   color: var(--primary-text-color);
   font-weight: bold;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  margin: 0 24px;
 }
-.card .title::first-letter {
+.portfolio-card .title::first-letter {
   text-transform: uppercase;
 }
-.card .text {
+.portfolio-card .text {
   color: var(--secondary-text-color);
   font-size: 16px;
   line-height: 1.87;
+  margin: 0 24px;
 }
-.card .text::first-letter {
+.portfolio-card .text::first-letter {
   text-transform: uppercase;
 }
