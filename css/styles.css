@@ -18,7 +18,6 @@
 }
 html {
   box-sizing: border-box;
-  line-height: 0px;
 }
 *,
 *::after,
@@ -35,6 +34,9 @@ body {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.03em;
   font-size: 14px;
+}
+img {
+  display: block;
 }
 .list {
   list-style: none;
@@ -311,6 +313,12 @@ body {
   text-align: center;
   padding: 6px 22px;
 }
+.filter .filter-button:hover,
+.filter .filter-button:focus {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  cursor: pointer;
+}
 .filter .filter-button.current {
   background-color: var(--accent-color);
   color: var(--white-color);
@@ -349,4 +357,7 @@ body {
 }
 .portfolio-card .text::first-letter {
   text-transform: uppercase;
+}
+.card-list .card-invisible {
+  display: none;
 }
