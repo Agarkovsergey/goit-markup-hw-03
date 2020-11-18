@@ -23,7 +23,6 @@ html {
 *::after,
 *::before {
   box-sizing: inherit;
-  /* outline: 1px solid orangered; */
   margin: 0;
   padding: 0;
 }
@@ -309,6 +308,7 @@ img {
 .filter .filter-button {
   background-color: var(--secondary-background-color);
   border: 1px solid transparent;
+  outline: none;
   border-radius: 4px;
   color: var(--primary-text-color);
   font-weight: 500;
