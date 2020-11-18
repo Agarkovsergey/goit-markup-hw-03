@@ -18,6 +18,7 @@
 }
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 *,
 *::after,
@@ -33,7 +34,31 @@ body {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.03em;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+/* начало болка прижимает футер к низу страници на случай если у нас будет мало контента, у мы не хотим видеть ниже футера пустоту */
+/* так же необходимо задать height:100%; для body и html, и задать display: flex; flex-direction: column; для body */
+header {
+  /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+main {
+  /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+footer {
+  /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+/* конец блока прижимает футер к низу страници на случай если у нас будет мало контента, у мы не хотим видеть ниже футера пустоту */
 img {
   display: block;
 }
