@@ -20,13 +20,16 @@ const handler = (option) => (e) => {
     let cards = document.getElementsByClassName("portfolio-card");
     for (let j = 0; j < cards.length; j++) { 
         cards[j].classList.remove("card-invisible");
+        cards[j].classList.add("test");
         
         if (filter === "any") {
+            cards[j].classList.remove("test");
             continue;
         }
 
         if (!cards[j].classList.contains(filter)) {
             cards[j].classList.add("card-invisible");
+            cards[j].classList.remove("test");
         }
     }
 }
